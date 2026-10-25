@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --sat: env(safe-area-inset-top, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+    --sal: env(safe-area-inset-left, 0px);
+    --sar: env(safe-area-inset-right, 0px);
+    color-scheme: light dark;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    box-sizing: border-box;
+  }
+
+  input, textarea {
+    -webkit-touch-callout: default;
+    user-select: text;
+    -webkit-user-select: text;
+  }
+
+  html {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    overscroll-behavior-y: none;
+    min-height: 100%;
+    min-height: 100dvh;
+    min-height: -webkit-fill-available;
+  }
+
+  /* Black and White adaptive scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d4d4d8;
+    border-radius: 9999px;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    background: #27272a;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a1a1aa;
+  }
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: #3f3f46;
+  }
+}
+
+/* Standalone iPhone PWA Safe Area Utilities */
+/* Top Notch / Dynamic Island Safe Area */
+.pt-notch {
+  padding-top: max(calc(env(safe-area-inset-top, 0px) + 0.75rem), 1.25rem);
+}
+
+.pt-safe {
+  padding-top: max(env(safe-area-inset-top, 0px), 1rem);
+}
+
+/* Bottom Bar / Home Indicator Safe Area */
+.pb-home-indicator {
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 0.5rem);
+}
+
+.pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 1rem);
+}
+
+.px-safe {
+  padding-left: max(env(safe-area-inset-left, 0px), 1rem);
+  padding-right: max(env(safe-area-inset-right, 0px), 1rem);
+}
+
+/* Btt Signature Letter Splitting Micro-Interaction */
+@keyframes bttSplitLeft {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateX(0px);
+  }
+  35% {
+    opacity: 1;
+    transform: scale(1.2) translateX(-9px) rotate(-8deg);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(1.05) translateX(-5px) rotate(-3deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.7) translateX(0px);
+  }
+}
+
+@keyframes bttSplitMid {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(0px);
+  }
+  35% {
+    opacity: 1;
+    transform: scale(1.35) translateY(-4px);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(1.1) translateY(-1px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.7) translateY(0px);
+  }
+}
+
+@keyframes bttSplitRight {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateX(0px);
+  }
+  35% {
+    opacity: 1;
+    transform: scale(1.2) translateX(9px) rotate(8deg);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(1.05) translateX(5px) rotate(3deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.7) translateX(0px);
+  }
+}
+
+.animate-btt-split-left {
+  animation: bttSplitLeft 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-btt-split-mid {
+  animation: bttSplitMid 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-btt-split-right {
+  animation: bttSplitRight 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+

@@ -1,0 +1,7 @@
+{
+  "name": "Btt Music",
+  "version": "1.4.0",
+  "buildDate": "2026-10-25",
+  "releaseNotes": "Btt Music 1.4.0: AirPod double/triple tap lock-screen track navigation, genuine 3x volume booster with dynamics limiter, iOS Web Audio in-app volume slider fix, continuous Btt Magic Mix crossfade handoff without track relaunch, unified official app logo & icon assets, and animated Btt play/resume micro-interaction.",
+  "minSupportedVersion": "1.0.0"
+}
